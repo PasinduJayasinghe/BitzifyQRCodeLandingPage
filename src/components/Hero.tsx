@@ -7,10 +7,6 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onGetUpdates }) => {
-  const eventDate = 'March 28, 2024';
-  const eventLocation = 'Sri Dalada Maligawa, Kandy';
-  const eventTitle = 'Sacred Tooth Relic Public Show';
-
   return (
     <section 
       className="hero" 
@@ -20,12 +16,7 @@ const Hero: React.FC<HeroProps> = ({ onGetUpdates }) => {
     >
       <div className="hero-overlay" aria-hidden="true" />
       <div className="hero-content">
-        <div className="hero-badge">Public Event</div>
-        <h1 className="hero-title">{eventTitle}</h1>
-        <div className="hero-subtitle">
-          <div className="event-date">{eventDate}</div>
-          <div className="event-location">{eventLocation}</div>
-        </div>
+        <h1 className="hero-title">Sacred Tooth Relic Public Show</h1>
         <button 
           className="cta-button" 
           onClick={onGetUpdates}

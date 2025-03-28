@@ -5,51 +5,7 @@ interface UpdatesProps {
   onBack: () => void;
 }
 
-interface UpdateItem {
-  time: string;
-  title: string;
-  description: string;
-}
-
-interface UpdateSection {
-  title: string;
-  items: UpdateItem[];
-}
-
 const Updates: React.FC<UpdatesProps> = ({ onBack }) => {
-  const updateSections: UpdateSection[] = [
-    {
-      title: 'Traffic Updates',
-      items: [
-        {
-          time: 'March 28, 2024 - 8:00 AM',
-          title: 'Road Closures',
-          description: 'Main roads leading to Sri Dalada Maligawa will be closed from 6:00 AM to 8:00 PM.'
-        },
-        {
-          time: 'March 28, 2024 - 7:30 AM',
-          title: 'Parking Information',
-          description: 'Designated parking areas available at Kandy Lake View Parking and City Center Parking.'
-        }
-      ]
-    },
-    {
-      title: 'Important Notices',
-      items: [
-        {
-          time: 'March 27, 2024 - 5:00 PM',
-          title: 'Entry Requirements',
-          description: 'Please bring valid ID and follow the dress code guidelines for temple entry.'
-        },
-        {
-          time: 'March 27, 2024 - 4:30 PM',
-          title: 'Security Measures',
-          description: 'Enhanced security measures in place. Please arrive early for security checks.'
-        }
-      ]
-    }
-  ];
-
   return (
     <div className="updates-container">
       <button 
@@ -67,20 +23,53 @@ const Updates: React.FC<UpdatesProps> = ({ onBack }) => {
       </div>
 
       <div className="updates-grid">
-        {updateSections.map((section, index) => (
-          <section key={index} className="updates-section">
-            <h2>{section.title}</h2>
-            <div className="updates-list">
-              {section.items.map((item, itemIndex) => (
-                <div key={itemIndex} className="update-item">
-                  <div className="update-time">{item.time}</div>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-              ))}
+        <section className="updates-section">
+          <h2>Traffic Updates</h2>
+          <div className="updates-list">
+            <div className="update-item">
+              <div className="update-time">March 28, 2024 - 8:00 AM</div>
+              <h3>Road Closures</h3>
+              <p>Main roads leading to Sri Dalada Maligawa will be closed from 6:00 AM to 8:00 PM.</p>
             </div>
-          </section>
-        ))}
+            <div className="update-item">
+              <div className="update-time">March 28, 2024 - 7:30 AM</div>
+              <h3>Parking Information</h3>
+              <p>Designated parking areas available at Kandy Lake View Parking and City Center Parking.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="updates-section">
+          <h2>Important Notices</h2>
+          <div className="updates-list">
+            <div className="update-item">
+              <div className="update-time">March 27, 2024 - 5:00 PM</div>
+              <h3>Entry Requirements</h3>
+              <p>Please bring valid ID and follow the dress code guidelines for temple entry.</p>
+            </div>
+            <div className="update-item">
+              <div className="update-time">March 27, 2024 - 4:30 PM</div>
+              <h3>Security Measures</h3>
+              <p>Enhanced security measures in place. Please arrive early for security checks.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="updates-section">
+          <h2>Important Locations</h2>
+          <div className="updates-list">
+            <div className="update-item">
+              <div className="update-time">March 28, 2024</div>
+              <h3>Main Temple Entrance</h3>
+              <p>Primary entry point for visitors. Security checkpoints and information desks available.</p>
+            </div>
+            <div className="update-item">
+              <div className="update-time">March 28, 2024</div>
+              <h3>Emergency Services</h3>
+              <p>Medical aid stations and emergency response teams stationed at key points.</p>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

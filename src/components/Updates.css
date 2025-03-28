@@ -1,5 +1,5 @@
 .updates-container {
-  padding: 120px 2rem 2rem;
+  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   min-height: 100vh;
@@ -8,7 +8,7 @@
 
 .back-button {
   position: fixed;
-  top: 100px;
+  top: 2rem;
   left: 2rem;
   display: flex;
   align-items: center;
@@ -23,6 +23,9 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
 }
 
 .back-button:hover {
@@ -42,6 +45,9 @@
 .updates-header {
   text-align: center;
   margin-bottom: 3rem;
+  padding-top: 4rem;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
 }
 
 .updates-header h1 {
@@ -57,15 +63,44 @@
 
 .updates-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
 .updates-section {
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.updates-section:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.updates-section:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.updates-section:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .updates-section h2 {
@@ -80,6 +115,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  flex: 1;
 }
 
 .update-item {
@@ -111,9 +147,19 @@
   line-height: 1.5;
 }
 
+@media (max-width: 1200px) {
+  .updates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .updates-container {
-    padding: 100px 1rem 1rem;
+    padding: 1rem;
+  }
+
+  .updates-header {
+    padding-top: 3rem;
   }
 
   .updates-header h1 {
@@ -129,16 +175,26 @@
   }
 
   .back-button {
-    top: 90px;
+    top: 1rem;
     left: 1rem;
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
 }
 
+@media (max-width: 768px) {
+  .updates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 480px) {
   .updates-container {
-    padding: 80px 0.5rem 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .updates-header {
+    padding-top: 2.5rem;
   }
 
   .updates-header h1 {
@@ -150,9 +206,18 @@
   }
 
   .back-button {
-    top: 80px;
-    left: 0.5rem;
+    top: 0.75rem;
+    left: 0.75rem;
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 } 
